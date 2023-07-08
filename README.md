@@ -29,7 +29,7 @@
 - nome (VARCHAR)
 - descricao (TEXT)
 
-### Entidade: Estudante
+## Entidade: Estudante
 
 __id_estudante (INT, PK):__ É a chave primária que identifica exclusivamente cada estudante na tabela.
 nome (VARCHAR): Armazena o nome do estudante.
@@ -37,7 +37,8 @@ data_nascimento (DATE): Representa a data de nascimento do estudante.
 email (VARCHAR): Armazena o endereço de e-mail do estudante.
 telefone (VARCHAR): Armazena o número de telefone do estudante.
 curso_id (INT, FK -> Curso): É uma chave estrangeira que se relaciona com a tabela Curso, indicando o curso em que o estudante está matriculado.
-Entidade: PessoaFacilitadora
+
+## Entidade: PessoaFacilitadora
 
 __id_facilitador (INT, PK):__ É a chave primária que identifica exclusivamente cada pessoa facilitadora na tabela.
 nome (VARCHAR): Armazena o nome da pessoa facilitadora.
