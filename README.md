@@ -29,7 +29,7 @@
 - nome (VARCHAR)
 - descricao (TEXT)
 
-#### Entidade: Estudante
+### Entidade: Estudante
 
 __id_estudante (INT, PK):__ É a chave primária que identifica exclusivamente cada estudante na tabela.
 nome (VARCHAR): Armazena o nome do estudante.
