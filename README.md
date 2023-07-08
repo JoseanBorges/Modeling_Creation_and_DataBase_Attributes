@@ -44,17 +44,20 @@ __id_facilitador (INT, PK):__ É a chave primária que identifica exclusivamente
 nome (VARCHAR): Armazena o nome da pessoa facilitadora.
 email (VARCHAR): Armazena o endereço de e-mail da pessoa facilitadora.
 telefone (VARCHAR): Armazena o número de telefone da pessoa facilitadora.
-Entidade: Turma
+
+## Entidade: Turma
 
 __id_turma (INT, PK):__ É a chave primária que identifica exclusivamente cada turma na tabela.
 nome (VARCHAR): Armazena o nome da turma.
 facilitador_id (INT, FK -> PessoaFacilitadora): É uma chave estrangeira que se relaciona com a tabela PessoaFacilitadora, indicando a pessoa facilitadora responsável pela turma.
-Entidade: Módulo
+
+## Entidade: Módulo
 
 __id_modulo (INT, PK):__ É a chave primária que identifica exclusivamente cada módulo na tabela.
 nome (VARCHAR): Armazena o nome do módulo.
 turma_id (INT, FK -> Turma): É uma chave estrangeira que se relaciona com a tabela Turma, indicando a turma à qual o módulo pertence.
-Entidade: Curso
+
+## Entidade: Curso
 
 __id_curso (INT, PK):__ É a chave primária que identifica exclusivamente cada curso na tabela.
 nome (VARCHAR): Armazena o nome do curso.
