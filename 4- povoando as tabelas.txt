@@ -1,0 +1,169 @@
+--Povoando a tabela modulo
+
+-- ATENÇÃO POVOAR UMA TABELA POR VEZ NA ORDEM
+
+BEGIN;
+
+INSERT INTO modulo (id_modulo,nome)
+VALUES
+  ('1','iniciante'),
+  ('2','intermediario'),
+  ('3','avançado');
+COMMIT;
+
+
+-- Povoando a pessoa_facilitadora
+
+BEGIN;
+
+INSERT INTO pessoa_facilitadora (id_facilitador,nome,email)
+VALUES
+  ('6236','Rafael','rafael.facilitador@gmail.com'),
+  ('1956','Jose','jose>facilitador@uol.com'),
+  ('3496','will','will.facilitador@gmail.com');
+COMMIT;
+
+
+--Povoando o curso
+
+BEGIN;
+
+INSERT INTO curso (id_curso,nome,descricao)
+VALUES
+  ('1','cientista de dados','machine learning'),
+  ('2','analista de dados','python e power bi'),
+  ('3','desenvolvimento back end','machine learning');
+
+COMMIT;
+
+
+-- Povoando a turma
+
+BEGIN;
+INSERT INTO turma (id_turma,nome,id_curso,id_facilitador)
+VALUES
+  ('1','ifood','3','3496'),
+  ('2','uber','3','6236'),
+  ('3','rappi','2','3496'),
+  ('4','Cornershop','1','1956');
+
+
+
+-- Cadastro estudante
+
+BEGIN;
+
+INSERT INTO estudante (id_estudante,nome,data_nascimento,email,telefone,id_turma,status)
+VALUES
+  ('597246','Erasmus','1992-04-16','vel.faucibus.id@outlook.ca','86692268878','3','ativo'),
+  ('446839','Talon','2002-08-22','ipsum@aol.couk','21486312785','2','ativo'),
+  ('224382','Joy','1990-11-18','non.quam.pellentesque@google.couk','86118253331','4','ativo'),
+  ('268607','Charity','1976-02-19','donec@yahoo.org','86853728244','2','desistente'),
+  ('665573','Geoffrey','2000-04-01','consectetuer@google.net','86791441672','3','desistente'),
+  ('518595','Justin','1985-09-28','quisque.tincidunt@outlook.edu','86767261185','1','ativo'),
+  ('843046','Oliver','1980-01-03','lobortis.mauris@hotmail.net','11981221625','1','ativo'),
+  ('846773','Donovan','1980-07-04','odio.auctor@protonmail.ca','42373677188','2','ativo'),
+  ('052079','Colette','1988-09-20','nibh.vulputate@yahoo.org','42023877988','3','ativo'),
+  ('039455','Donovan','1989-11-25','sed.est@hotmail.com','11888515944','2','ativo'),
+  ('468423','Kessie','2002-11-23','feugiat.non.lobortis@google.edu','86020183628','1','desistente'),
+  ('174312','Madaline','1985-04-07','nascetur.ridiculus@aol.com','11076163194','3','ativo'),
+  ('935624','Fredericka','1988-12-01','proin.mi.aliquam@outlook.org','42602204227','4','ativo'),
+  ('561778','Dennis','1983-12-29','habitant@aol.com','42987833165','4','ativo'),
+  ('464415','Aretha','2001-10-06','orci.phasellus@protonmail.net','11355702481','4','ativo'),
+  ('744331','Amelia','1997-07-07','aliquet.metus.urna@protonmail.couk','42270585075','3','desistente'),
+  ('684877','Scott','1987-05-26','habitant.morbi@yahoo.edu','21606164538','1','ativo'),
+  ('260490','Moses','1988-04-05','amet.orci@protonmail.ca','21947623317','3','ativo'),
+  ('318686','Alexis','1980-12-01','eget.laoreet@icloud.net','42065971655','1','ativo'),
+  ('457390','Veda','1984-04-21','iaculis@google.com','11452514521','2','ativo'),
+  ('863641','Malik','1998-06-05','nunc.interdum@outlook.com','11161718245','3','ativo'),
+  ('975482','Sawyer','2000-09-18','ultricies.ligula@yahoo.ca','11858936856','3','ativo'),
+  ('082580','Charles','1982-09-13','dapibus.quam@protonmail.net','42403455717','1','ativo'),
+  ('078983','Jordan','1990-01-18','libero.integer@protonmail.edu','11067219972','1','ativo'),
+  ('015336','Neve','1980-10-28','ornare.elit@yahoo.com','21422390810','4','desistente'),
+  ('522367','Griffith','1994-07-02','turpis.aliquam.adipiscing@protonmail.net','42431352807','4','ativo'),
+  ('768027','Portia','1983-09-15','orci.ut@google.ca','11422871949','3','ativo'),
+  ('335893','Ashely','1985-02-06','nisi@hotmail.ca','21895469715','3','ativo'),
+  ('978217','Naida','1987-06-23','dui@aol.org','21533226333','3','ativo'),
+  ('186923','Norman','2001-04-10','libero.morbi@aol.org','11661010497','1','ativo'),
+  ('578745','Lucy','1980-08-08','rhoncus.donec@yahoo.ca','86415716272','4','ativo'),
+  ('821404','Whitney','1986-07-29','quis@yahoo.org','11373115942','4','ativo'),
+  ('211416','Raymond','1978-01-22','ornare.egestas.ligula@google.edu','86471441586','4','ativo'),
+  ('254814','Yeo','1999-04-01','ante.dictum@protonmail.edu','42173354758','1','ativo'),
+  ('980269','Orla','1992-06-17','id@yahoo.com','11877392835','2','desistente'),
+  ('259826','Diana','1985-05-18','mattis.velit@yahoo.org','11502140667','3','ativo'),
+  ('560200','Damon','1998-01-27','faucibus.leo@google.net','11847721759','4','desistente'),
+  ('734318','Cailin','1989-07-10','faucibus.orci.luctus@outlook.couk','86732775236','4','ativo'),
+  ('097213','Perry','1995-05-29','nisi.cum.sociis@aol.edu','86577671245','1','desistente'),
+  ('433185','Kiayada','1981-09-20','egestas.a@protonmail.ca','11858262582','1','desistente'),
+  ('503143','Ross','1990-08-13','maecenas.mi@aol.com','86381666377','4','ativo'),
+  ('475452','Wallace','1979-06-23','lacus.etiam@outlook.org','42830352826','2','ativo'),
+  ('112856','Barclay','1979-11-24','enim.nec@protonmail.com','21753566542','1','ativo'),
+  ('463720','Beau','1998-10-19','at.sem@aol.net','21464948214','4','ativo'),
+  ('416806','Randall','1989-12-22','quis.diam.pellentesque@hotmail.net','86638459238','2','ativo'),
+  ('661926','Emmanuel','1991-09-11','urna.nullam.lobortis@hotmail.org','86331525673','2','ativo'),
+  ('727672','Anika','1991-10-28','blandit@protonmail.net','42824236422','2','ativo'),
+  ('217273','Rhonda','1986-04-23','mauris.aliquam.eu@yahoo.edu','42756571248','3','desistente'),
+  ('720719','Chancellor','1991-02-15','enim.curabitur.massa@outlook.com','11197313661','3','ativo'),
+  ('851769','Adria','1980-12-27','feugiat.metus@protonmail.org','21591101175','1','desistente');
+ COMMIT;
+
+
+
+-- preenchendo a tabela turma_aluno
+
+BEGIN;
+
+INSERT INTO turma_aluno (id_turma,id_estudante,id_modulo)
+VALUES
+('3','597246','2'),
+('2','446839','3'),
+('4','224382','1'),
+('2','268607','3'),
+('3','665573','2'),
+('1','518595','3'),
+('1','843046','3'),
+('2','846773','3'),
+('3','52079','2'),
+('2','39455','3'),
+('1','468423','3'),
+('3','174312','2'),
+('4','935624','1'),
+('4','561778','1'),
+('4','464415','1'),
+('3','744331','2'),
+('1','684877','3'),
+('3','260490','2'),
+('1','318686','3'),
+('2','457390','3'),
+('3','863641','2'),
+('3','975482','2'),
+('1','82580','3'),
+('1','78983','3'),
+('4','15336','1'),
+('4','522367','1'),
+('3','768027','2'),
+('3','335893','2'),
+('3','978217','2'),
+('1','186923','3'),
+('4','578745','1'),
+('4','821404','1'),
+('4','211416','1'),
+('4','254814','1'),
+('2','980269','3'),
+('3','259826','2'),
+('4','560200','1'),
+('4','734318','1'),
+('1','97213','3'),
+('1','433185','3'),
+('4','503143','1'),
+('2','475452','3'),
+('1','112856','3'),
+('4','463720','1'),
+('2','416806','3'),
+('2','661926','3'),
+('2','727672','3'),
+('3','217273','2'),
+('3','720719','2'),
+('1','851769','3');
+
+COMMIT;
