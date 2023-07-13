@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-# Projeto Módulo 3
-
-## Squad 4
+# DATABASE RESILIA: Projeto Módulo 3 - Squad 4
 
 Bem-vindo! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
 
@@ -13,32 +10,6 @@ Bem-vindo! Neste projeto, fomos designados para modernizar o processo de armazen
 
 Acreditamos que o resultado foi satisfatório, pois agora podemos realizar consultas eficientes que fornecem informações estratégicas para a empresa.
 
-Em caso de dúvidas, você pode entrar em contato conosco através do LinkedIn:
-
-- [Aline Bozollan](https://www.linkedin.com/in/alinebozollan/)
-- [Arthur Vilarverde](https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/)
-- [Joel Nunes Jr](https://www.linkedin.com/in/joel-nunes-jr-0883b2265/)
-- [Josean Borges](https://www.linkedin.com/in/joseanplborges/)
-- [Rafael Antonio](https://www.linkedin.com/in/rafael-antonio-759a04241/)
-
-## Apontamentos
-
-Aqui estão algumas observações importantes para entender o funcionamento do código:
-
-#significado de cada uma dessas entidades e seus atributos:
- Estudante
-=======
-# DATABASE RESILIA: Projeto Módulo 3 - Squad 4
-
-Bem-vindo ao Projeto Módulo 3! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
-
-Geramos uma representação das entidades, seus atributos e relacionamentos;
-Criamos uma modelagem do Banco de Dados;
-Utilizamos scripts SQL para criar o Banco de Dados e suas Tabelas;
-Criamos scripts para inserção de dados nas Tabelas;
-Realizamos testes de consulta.
-Acreditamos que o resultado foi satisfatório, pois agora podemos realizar consultas eficientes que fornecem informações estratégicas para a empresa.
-
 ## Sumário:
 - Integrantes da Squad.
 - Entidades e atributos.
@@ -48,16 +19,17 @@ Acreditamos que o resultado foi satisfatório, pois agora podemos realizar consu
 
 ### Em caso de dúvidas, você pode entrar em contato conosco através do LinkedIn:
 
-- Aline Bozollan(Colaboradora)
-- Arthur Vilarverde(Gestor de Gente e Engajamento)
-- Joel Nunes Jr.(Gestor de Conhecimento)
-- Josean Borges(Colaborador)
-- Rafael Antonio(Co-Facilitador)
+Em caso de dúvidas, você pode entrar em contato conosco através do LinkedIn:
+
+- Aline Bozollan(Colaboradora) - [Linkedin](https://www.linkedin.com/in/alinebozollan/)
+- Arthur Vilarverde(Gestor de Gente e Engajamento) - [Linkedin](https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/)
+- Joel Nunes Jr.(Gestor de Conhecimento) - [Linkedin](https://www.linkedin.com/in/joel-nunes-jr-0883b2265/)
+- Josean Borges(Colaborador) - [Linkedin](https://www.linkedin.com/in/joseanplborges/)
+- Rafael Antonio(Co-Facilitador) - [Linkedin](https://www.linkedin.com/in/rafael-antonio-759a04241/)
 
 #### Para compor nosso banco de dados foram criadas e povoadas 7 tabelas. São elas:
 
 **Estudante**
->>>>>>> Stashed changes
 - id_estudante (INT, PK)
 - nome (VARCHAR)
 - data_nascimento (DATE)
@@ -146,16 +118,41 @@ ALTER TABLE IF EXISTS public.turma_aluno
 
 ## Fez-se necessária a criação de um TRIGGER(Gatilho), para o registro a cada inserção na tabela ESTUDANTE.
 
-VISUALIZAÇÃO DOS DADOS COM VIEWS
+CREATE OR REPLACE FUNCTION ESTUDANTE_LOG_FUNC()
+RETURNS TRIGGER
+LANGUAGE PLPGSQL
+AS $$
+BEGIN
 
-- 1. Selecionar a quantidade total de estudantes cadastrados no banco;
+INSERT INTO ESTUDANTE_AUDITORIA(ID_ESTUDANTE, DATA_INSERT) VALUES (NEW.ID_ESTUDANTE, CURRENT_TIMESTAMP);
+RETURN NEW;
+END;
+$$
+
+CREATE TRIGGER LOG_TRIGGER
+AFTER INSERT ON ESTUDANTE
+FOR EACH ROW
+EXECUTE PROCEDURE ESTUDANTE_LOG_FUNC();
+
+#### VISUALIZAÇÃO DOS DADOS COM VIEWS
+
+- Selecionar a quantidade total de estudantes cadastrados no banco;
+
 **SELECT * FROM TOTAL_ALUNO**
 
-- 2. Selecionar quais pessoas facilitadoras atuam em mais de uma turma;
+- Selecionar quais pessoas facilitadoras atuam em mais de uma turma;
+
 **SELECT * FROM FACILITADOR_COM_VARIAS_TURMA**
 
-- 3. Crie uma view que selecione a porcentagem de estudantes com status de evasão agrupados por turma;
+- Crie uma view que selecione a porcentagem de estudantes com status de evasão agrupados por turma;
+
 **SELECT * FROM PORC_EVASAO**
 
-- 4. Além disso, vocês deverão pensar em mais uma questão que deverá ser respondida por scripts SQL que combine pelo menos 3 tabelas. 
-    **SELECT * FROM TURMA_FACILITADOR_ALUNO**
+- Crie um trigger para ser disparado quando o atributo status de um estudante for atualizado e
+inserir um novo dado em uma tabela de log.
+
+**SELECT * FROM ESTUDANTE_AUDITORIA**
+
+- Além disso, vocês deverão pensar em mais uma questão que deverá ser respondida por scripts SQL que combine pelo menos 3 tabelas.
+
+**SELECT * FROM TURMA_FACILITADOR_ALUNO**
