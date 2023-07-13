@@ -1,0 +1,41 @@
+ALTER TABLE IF EXISTS public.estudante
+    ADD CONSTRAINT id_turma FOREIGN KEY (id_turma)
+    REFERENCES public.turma (id_turma) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma
+    ADD CONSTRAINT id_curso FOREIGN KEY (id_curso)
+    REFERENCES public.curso (id_curso) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma
+    ADD CONSTRAINT id_facilitador FOREIGN KEY (id_facilitador)
+    REFERENCES public.pessoa_facilitadora (id_facilitador) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_turma FOREIGN KEY (id_turma)
+    REFERENCES public.turma (id_turma) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_estudante FOREIGN KEY (id_estudante)
+    REFERENCES public.estudante (id_estudante) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_modulo FOREIGN KEY (id_modulo)
+    REFERENCES public.modulo (id_modulo) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
