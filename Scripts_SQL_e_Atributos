@@ -11,32 +11,41 @@ CREATE TABLE Estudante (
   data_nascimento DATE,
   email VARCHAR(100),
   telefone VARCHAR(20),
-  curso_id INT,
-  FOREIGN KEY (curso_id) REFERENCES Curso(id_curso)
+  id_turma INT,
 );
 
 -- Criação da tabela PessoaFacilitadora
 CREATE TABLE PessoaFacilitadora (
   id_facilitador INT PRIMARY KEY,
   nome VARCHAR(100),
-  email VARCHAR(100),
-  telefone VARCHAR(20)
+  email VARCHAR(100)
 );
 
 -- Criação da tabela Turma
 CREATE TABLE Turma (
   id_turma INT PRIMARY KEY,
   nome VARCHAR(100),
-  facilitador_id INT,
-  FOREIGN KEY (facilitador_id) REFERENCES PessoaFacilitadora(id_facilitador)
+  id_facilitador INT,
+  id_curso INT
+);
+
+-- Criação da tabela Turma_Aluno
+CREATE TABLE Turma_aluno (
+  id_turma INT,
+  id_estudante INT,
+  id_modulo INT
+);
+
+-- Criação da tabela Estudante_Auditoria
+CREATE TABLE Estudante_auditoria (
+  id_estudante INT,
+  data_insert timestamp
 );
 
 -- Criação da tabela Modulo
 CREATE TABLE Modulo (
   id_modulo INT PRIMARY KEY,
-  nome VARCHAR(100),
-  turma_id INT,
-  FOREIGN KEY (turma_id) REFERENCES Turma(id_turma)
+  nome VARCHAR(100)
 );
 
 -- Criação da tabela Curso
@@ -45,3 +54,64 @@ CREATE TABLE Curso (
   nome VARCHAR(100),
   descricao TEXT
 );
+
+-- Criando o relacionamento entre tabelas.
+ALTER TABLE IF EXISTS public.estudante
+    ADD CONSTRAINT id_turma FOREIGN KEY (id_turma)
+    REFERENCES public.turma (id_turma) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma
+    ADD CONSTRAINT id_curso FOREIGN KEY (id_curso)
+    REFERENCES public.curso (id_curso) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma
+    ADD CONSTRAINT id_facilitador FOREIGN KEY (id_facilitador)
+    REFERENCES public.pessoa_facilitadora (id_facilitador) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_turma FOREIGN KEY (id_turma)
+    REFERENCES public.turma (id_turma) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_estudante FOREIGN KEY (id_estudante)
+    REFERENCES public.estudante (id_estudante) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.turma_aluno
+    ADD CONSTRAINT id_modulo FOREIGN KEY (id_modulo)
+    REFERENCES public.modulo (id_modulo) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+--  Criação da função trigger
+
+CREATE OR REPLACE FUNCTION ESTUDANTE_LOG_FUNC()
+RETURNS TRIGGER
+LANGUAGE PLPGSQL
+AS $$
+BEGIN
+INSERT INTO ESTUDANTE_AUDITORIA(ID_ESTUDANTE, DATA_INSERT) VALUES (NEW.ID_ESTUDANTE, CURRENT_TIMESTAMP);
+RETURN NEW;
+END;
+$$
+
+CREATE TRIGGER LOG_TRIGGER
+AFTER INSERT ON ESTUDANTE
+FOR EACH ROW
+EXECUTE PROCEDURE ESTUDANTE_LOG_FUNC();
