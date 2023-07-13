@@ -2,7 +2,7 @@
 
 ## Squad 4
 
-Bem-vindo ao Projeto Módulo 3! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
+Bem-vindo! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
 
 - Geramos uma representação das entidades, seus atributos e relacionamentos;
 - Criamos uma modelagem do Banco de Dados;
