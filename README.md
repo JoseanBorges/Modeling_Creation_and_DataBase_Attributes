@@ -15,6 +15,7 @@ Bem-vindo! Este projeto é uma simulação, onde fomos escalados para modernizar
 -Executamos testes de consulta.
 
 Acreditamos que o resultado foi satisfatório, sendo possível fazer consultas eficientes que geram informações estratégicas para a empresa.
+
 Em caso de dúvidas, esses são nossos contatos no Linkedin: https://www.linkedin.com/in/alinebozollan/, https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/, https://www.linkedin.com/in/joel-nunes-jr-0883b2265/, https://www.linkedin.com/in/joseanplborges/,  https://www.linkedin.com/in/rafael-antonio-759a04241/
 
 **A seguir, alguns apontamentos para melhor entendimento do funcionamento do código:**
