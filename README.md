@@ -1,24 +1,28 @@
-#**PROJETO MÓDULO 3**
+# Projeto Módulo 3
 
-_Squad 3_
+## Squad 3
 
-Bem-vindo! Este projeto é uma simulação, onde fomos escalados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Fizemos isso seguindo algumas etapas, da seguinte forma:
+Bem-vindo ao Projeto Módulo 3! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
 
--Geramos uma representação das entidades, seus atributos e relacionamentos;
+- Geramos uma representação das entidades, seus atributos e relacionamentos;
+- Criamos uma modelagem do Banco de Dados;
+- Utilizamos scripts SQL para criar o Banco de Dados e suas Tabelas;
+- Criamos scripts para inserção de dados nas Tabelas;
+- Realizamos testes de consulta.
 
--Criamos uma modelagem do Banco de Dados;
+Acreditamos que o resultado foi satisfatório, pois agora podemos realizar consultas eficientes que fornecem informações estratégicas para a empresa.
 
--Utilizamos scripts SQL para criação do Banco de Dados e suas Tabelas;
+Em caso de dúvidas, você pode entrar em contato conosco através do LinkedIn:
 
--Fizemos scripts para inserção de dados nas Tabelas;
+- [Aline Bozollan](https://www.linkedin.com/in/alinebozollan/)
+- [Arthur Vilarverde](https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/)
+- [Joel Nunes Jr](https://www.linkedin.com/in/joel-nunes-jr-0883b2265/)
+- [Josean Borges](https://www.linkedin.com/in/joseanplborges/)
+- [Rafael Antonio](https://www.linkedin.com/in/rafael-antonio-759a04241/)
 
--Executamos testes de consulta.
+## Apontamentos
 
-Acreditamos que o resultado foi satisfatório, sendo possível fazer consultas eficientes que geram informações estratégicas para a empresa.
-
-Em caso de dúvidas, esses são nossos contatos no Linkedin: https://www.linkedin.com/in/alinebozollan/, https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/, https://www.linkedin.com/in/joel-nunes-jr-0883b2265/, https://www.linkedin.com/in/joseanplborges/,  https://www.linkedin.com/in/rafael-antonio-759a04241/
-
-**A seguir, alguns apontamentos para melhor entendimento do funcionamento do código:**
+Aqui estão algumas observações importantes para entender o funcionamento do código:
 
 #significado de cada uma dessas entidades e seus atributos:
  Estudante
