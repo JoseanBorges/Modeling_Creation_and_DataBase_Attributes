@@ -1,0 +1,61 @@
+ROLLBACK;
+BEGIN;
+CREATE TABLE IF NOT EXISTS public.curso
+(
+    id_curso integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    descricao character varying COLLATE pg_catalog."default",
+    CONSTRAINT curso_pkey PRIMARY KEY (id_curso)
+);
+
+CREATE TABLE IF NOT EXISTS public.estudante
+(
+    id_estudante integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    data_nascimento date,
+    email character varying COLLATE pg_catalog."default",
+    telefone character varying COLLATE pg_catalog."default",
+    id_turma integer,
+    status character varying COLLATE pg_catalog."default",
+    CONSTRAINT estudante_pkey PRIMARY KEY (id_estudante)
+);
+
+CREATE TABLE IF NOT EXISTS public.estudante_auditoria
+(
+    id_estudante integer,
+    data_insert timestamp without time zone
+);
+
+CREATE TABLE IF NOT EXISTS public.modulo
+(
+    id_modulo integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    CONSTRAINT modulo_pkey PRIMARY KEY (id_modulo)
+);
+
+CREATE TABLE IF NOT EXISTS public.pessoa_facilitadora
+(
+    id_facilitador integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    email character varying COLLATE pg_catalog."default",
+    CONSTRAINT pessoa_facilitadora_pkey PRIMARY KEY (id_facilitador)
+);
+
+CREATE TABLE IF NOT EXISTS public.turma
+(
+    id_turma integer NOT NULL,
+    nome character varying COLLATE pg_catalog."default",
+    id_curso integer,
+    id_facilitador integer,
+    CONSTRAINT turma_pkey PRIMARY KEY (id_turma)
+);
+
+CREATE TABLE IF NOT EXISTS public.turma_aluno
+(
+    id_turma integer,
+    id_estudante integer,
+    id_modulo integer
+);
+
+END;
+COMMIT;
