@@ -1,3 +1,24 @@
+#**PROJETO MÓDULO 3**
+
+_Squad 3_
+
+Bem-vindo! Este projeto é uma simulação, onde fomos escalados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Fizemos isso seguindo algumas etapas, da seguinte forma:
+
+-Geramos uma representação das entidades, seus atributos e relacionamentos;
+
+-Criamos uma modelagem do Banco de Dados;
+
+-Utilizamos scripts SQL para criação do Banco de Dados e suas Tabelas;
+
+-Fizemos scripts para inserção de dados nas Tabelas;
+
+-Executamos testes de consulta.
+
+Acreditamos que o resultado foi satisfatório, sendo possível fazer consultas eficientes que geram informações estratégicas para a empresa.
+Em caso de dúvidas, esses são nossos contatos no Linkedin: https://www.linkedin.com/in/alinebozollan/, https://www.linkedin.com/in/arthur-vilarverde-dataanalytics-webdev/, https://www.linkedin.com/in/joel-nunes-jr-0883b2265/, https://www.linkedin.com/in/joseanplborges/,  https://www.linkedin.com/in/rafael-antonio-759a04241/
+
+**A seguir, alguns apontamentos para melhor entendimento do funcionamento do código:**
+
 #significado de cada uma dessas entidades e seus atributos:
  Estudante
 - id_estudante (INT, PK)
