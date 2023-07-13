@@ -1,6 +1,6 @@
 # Projeto Módulo 3
 
-## Squad 3
+## Squad 4
 
 Bem-vindo ao Projeto Módulo 3! Neste projeto, fomos designados para modernizar o processo de armazenamento de dados e construção para gerenciamento da estrutura de ensino de uma empresa. Seguimos as seguintes etapas:
 
